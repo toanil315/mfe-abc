@@ -1,0 +1,10 @@
+{
+    "app1": {
+        "appName": "app1",
+        "path": "http://localhost:3001/remoteEntry.js"
+      },
+      "app2": {
+        "appName": "app2",
+        "path": "http://localhost:3002/remoteEntry.js"
+      }
+}
