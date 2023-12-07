@@ -48,7 +48,11 @@ const getDevConfigs = (localApps) => ({
   plugins: [
     new ModuleFederationPlugin({
       name: "container",
-      remotes: getRemotePaths(localApps),
+      // remotes: getRemotePaths(localApps),
+      remotes: {
+        app1: 'app1@http://localhost:3001/remoteEntry.js',
+        app2: 'app2@http://localhost:3002/remoteEntry.js'
+      },
       shared: {
         ...packageJson.dependencies,
       },
@@ -69,6 +73,6 @@ const getDevConfigs = (localApps) => ({
 });
 
 module.exports = (env) => {
-  const localApps = env.apps.split(",");
-  return merge(commonConfigs, getDevConfigs(localApps));
+  // const localApps = env.apps.split(",");
+  return merge(commonConfigs, getDevConfigs());
 };
