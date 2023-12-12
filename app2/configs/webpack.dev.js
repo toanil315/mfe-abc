@@ -35,6 +35,9 @@ const devConfigs = {
       exposes: {
         "./Module": "./src/bootstrap.tsx",
       },
+      remotes: {
+        store: `store@http://localhost:2999/remoteEntry.js`,
+      },
       shared: {
         ...packageJson.dependencies,
       },

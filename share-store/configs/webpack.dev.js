@@ -11,7 +11,7 @@ const devConfigs = {
   mode: "development",
   entry: "./src/main.tsx",
   output: {
-    publicPath: "http://localhost:3001/",
+    publicPath: "http://localhost:2999/",
   },
   resolve: {
     plugins: [
@@ -21,7 +21,7 @@ const devConfigs = {
     ],
   },
   devServer: {
-    port: 3001,
+    port: 2999,
     historyApiFallback: {
       index: "/index.html",
     },
@@ -30,20 +30,16 @@ const devConfigs = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "app1",
+      name: "store",
+      library: { type: 'global', name: 'store' },
       filename: "remoteEntry.js",
       exposes: {
-        "./Module": "./src/bootstrap.tsx",
-      },
-      remotes: {
-        store: `store@http://localhost:2999/remoteEntry.js`,
+        "./Module": "./src/main.tsx",
       },
       shared: {
-        ...packageJson.dependencies,
+        "nanostores": { singleton: true },
+        '"@nanostores/react': { singleton: true },
       },
-    }),
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
     }),
   ],
 };

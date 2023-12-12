@@ -1,5 +1,5 @@
 {
-  "name": "app1",
+  "name": "share-store",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -7,18 +7,9 @@
     "build": "webpack --config configs/webpack.prod.js"
   },
   "dependencies": {
-   
-    "react": "18.2.0",
-
-    "react-dom": "18.2.0",
-  
-    "react-is": "18.2.0",
-    "react-router-dom": "6.4.3",
-
-    "tslib": "^2.3.0",
-    "nanostores": "^0.9.5",
-   "@nanostores/react": "^0.7.1"
-  
+   "nanostores": "^0.9.5",
+   "@nanostores/react": "^0.7.1",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "7.18.9",
